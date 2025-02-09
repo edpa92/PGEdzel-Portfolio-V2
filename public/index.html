@@ -27,9 +27,10 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <script src="assets/js/angulajs.min.js"></script>
 </head>
 
-<body class="index-page">
+<body ng-controller="ModalController" class="index-page">
 
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
@@ -57,9 +58,9 @@
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <!-- <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li> -->
-        <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+               <!-- <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="#">Dropdown 1</a></li>
             <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -427,6 +428,79 @@
 
     </section><!-- /Resume Section -->
 
+    
+     <!-- Services Section -->
+     <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>
+          Looking for a Skilled Developer to Build Your Website or Web App?
+Do you need a custom website or web app system to streamline your business operations and reduce paperwork? Whether you're a startup, small business, or company, we’ve got you covered! We also develop capstone and thesis system projects for students.
+        </p>  
+        </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
+            <div>
+              <h4 class="title"><a href="service-details.html" class="stretched-link">Business Web App Development & Solutions</a></h4>
+              <p class="description">We developed Tailored systems to fit your business needs. HRMS, Information Systems, Management Systems, Online Booking, and more.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+            <div>
+              <h4 class="title"><a href="service-details.html" class="stretched-link">Professional Website Creation</a></h4>
+              <p class="description">Designed for marketing and brand visibility. such as your own Web-Portfolio or Business or Organizations Website</p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon flex-shrink-0"><i class="bi bi-cart"></i></div>
+            <div>
+              <h4 class="title"><a href="#" class="stretched-link">E-Commerce Websites</a></h4>
+              <p class="description">We can build your own online store, like Shopify and more.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+            <div>
+              <h4 class="title"><a href="#" class="stretched-link">Company Office Systems</a></h4>
+              <p class="description">Automate processes and reduce workloads efficiently.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon flex-shrink-0"><i class="bi bi-cloud"></i></div>
+            <div>
+              <h4 class="title"><a href="#" class="stretched-link">Local-to-Online System Migration</a></h4>
+              <p class="description">Upgrade your offline system to a cloud-based solution.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
+            <div class="icon flex-shrink-0"><i class="bi bi-book"></i></div>
+            <div>
+              <h4 class="title"><a href="#" class="stretched-link">Student Capstone & Thesis Projects</a></h4>
+              <p class="description">Web, Mobile, Destop app development for academic requirements.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section light-background">
 
@@ -457,8 +531,21 @@
                   <h4>LGU Makilala Website</h4>
                   <p>Local Gov Unit of Makilala Website using eLGU eNEWS CMS System Moduel</p>
                   <a href="assets/img/portfolio/app6.png" title="Local Gov Unit of Makilala Website using eLGU eNEWS System Moduel" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://elgu-makilala-cotabato-news.e.gov.ph/home" target="_blank" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> 
-                </div>
+                  <a ng-click="openModal(
+                    'LGU Makilala Official Website', 
+                    ' The LGU Makilala, Cotabato website serves as the official digital platform for providing government services, news, and updates to the community. It ensures transparency, accessibility, and efficient public service delivery through online resources, announcements, and citizen engagement. Designed to keep residents informed, the website offers essential information on local governance, policies, and community programs.',
+                    'LGU Makilala Official Website',
+                    'Category: Web App',
+                    'Project Date: Nov- Dec 2024',
+                    'https://elgu-makilala-cotabato-news.e.gov.ph',
+                    'Website Link',
+                    'assets/img/portfolio/app6.png',
+                    'assets/img/portfolio/app6/app6.1.png',
+                    'assets/img/portfolio/app6/app6.2.png',
+                    'assets/img/portfolio/app6/app6.3.png',
+                    'assets/img/portfolio/app6/app6.4.png')" 
+                    title="More Details" class="details-link">
+                    <i class="bi bi-link-45deg"></i></a></div>
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -469,7 +556,23 @@
                   <h4>Retailer</h4>
                   <p>Retailer: A Smart Solution for E-Pin and Mobile Load Management</p>
                   <a href="assets/img/portfolio/app1.png" title="Retailer: A Smart Solution for E-Pin and Mobile Load Management" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
+                  <a ng-click="openModal(
+                    'Retailer', 
+                    ' A Smart Solution for E-Pin and Mobile Load Management. A native Android mobile application designed to efficiently manage, distribute, and track sales of E-Pins and mobile loads across all satellite TV and mobile networks in the Philippines.
+                    The app has a special features called IAmServer where you can manage and make sales transactions on your Computer Browser as long as both devices are connected in the same network.
+                    <br/>Developed using Android SDK JetPack, Kotlin, Android Studio.',
+                    'Retailer',
+                    'Category: Mobile App',
+                    'Project Date: 2016-2022',
+                    'https://drive.google.com/drive/folders/1fk5oT2Rr1wfBg2d8bN3-omh4flX5qF0Q?usp=sharing',
+                    'Try the Demo App',
+                    'assets/img/portfolio/app1.png',
+                    'assets/img/portfolio/app1/auth.png',
+                    'assets/img/portfolio/app1/dashboard.png',
+                    'assets/img/portfolio/app1/navigation.png',
+                    'assets/img/portfolio/app1/sales.png')" 
+                    title="More Details" class="details-link">
+                    <i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -481,7 +584,29 @@
                   <h4>SEPTS</h4>
                   <p>Student Expert Pool Tutorial System (SEPTS) is a School Management System</p>
                   <a href="assets/img/portfolio/app2.png" title="Student Expert Pool Tutorial System (SEPTS)" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
+                  <a ng-click="openModal(
+                    'SEPTS', 
+                    'Student Expert Pool Tutorial System (SEPTS) is a School Management System (SMS) designed to track and manage various aspects of a school operations, particularly focusing on instructors activity, teaching progress, student information and learning progress.
+                    👨‍💻 Developed using: ASP.Net MVC5, C#, MSSql Server, Visual Studio, Bootstrap
+                    Features:
+                    ✅Student population monitoring per class section
+                    ✅Student Learning Progress monitoring
+                    ✅Instructor IMS and Topics Monitoring 
+                    ✅Instructor Teaching Progress with customizable Progress basis
+                    ✅Online quiz with timer
+                    ✅Instructor-Student Online Chat with Video Call',
+                    'Student Expert Pool Tutorial System (SEPTS)',
+                    'Category: Web App',
+                    'Project Date: Nov 2023 - Dec 2023',
+                    'https://www.linkedin.com/in/pgedzel92/details/projects/',
+                    'More Details',
+                    'assets/img/portfolio/app2.png',
+                    'assets/img/portfolio/app2/1.png',
+                    'assets/img/portfolio/app2/3.png',
+                    'assets/img/portfolio/app2/4.png',
+                    'assets/img/portfolio/app2/5.png')" 
+                    title="More Details" class="details-link">
+                    <i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
@@ -520,8 +645,7 @@
                   <h4>O-SEIS</h4>
                   <p>ORGANIZATION Equipment and Supplies Inventory System</p>
                   <a href="assets/img/portfolio/app5.png" title="ORGANIZATION Equipment and Supplies Inventory System" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                </div>
+                  </div>
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -532,6 +656,95 @@
 
         </div>
 
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="portfolioDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen img-thumbnail">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{ modalTitle }}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                  <!-- Portfolio Details Section -->
+                  <section id="portfolio-details" class="portfolio-details section">
+                    <div class="container" data-aos="fade-up" data-aos-delay="100">
+                      <div class="row gy-4">
+                        <div class="col-lg-8">
+                          <div class="portfolio-details-slider swiper init-swiper">
+                            <script type="application/json" class="swiper-config">
+                              {
+                                "loop": true,
+                                "speed": 600,
+                                "autoplay": {
+                                  "delay": 5000
+                                },
+                                "slidesPerView": "auto",
+                                "pagination": {
+                                  "el": ".swiper-pagination",
+                                  "type": "bullets",
+                                  "clickable": true
+                                }
+                              }
+                            </script>
+
+                            <div class="swiper-wrapper align-items-center">
+
+                              <div class="swiper-slide">
+                                <img class="d-block w-100 modal-img" ng-src="{{ modalImg1 }}" alt="">
+                              </div>
+
+                              <div class="swiper-slide">
+                                <img class="d-block w-100 modal-img" ng-src="{{ modalImg2 }}" alt="">
+                              </div>
+
+                              <div class="swiper-slide">
+                                <img  class="d-block w-100 modal-img" ng-src="{{ modalImg3 }}" alt="">
+                              </div>                              
+                              <div class="swiper-slide">
+                                <img  class="d-block w-100 modal-img" ng-src="{{ modalImg4 }}" alt="">
+                              </div>
+
+                              <div class="swiper-slide">
+                                <img class="d-block w-100 modal-img" ng-src="{{ modalImg5 }}" alt="">
+                              </div>
+
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                          <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Project information</h3>
+                            <ul>
+                              <li><strong> {{ modalCategory }}</strong></li>
+                              <li><strong> {{ modalClient }}</strong></li>
+                              <li><strong> {{ modalProjectDate }}</strong></li>
+                              <li><strong><a target="_blank" ng-href="{{ modalProjectURL }}"> {{ modalProjectURLText }}</a></strong></li>
+                            </ul>
+                          </div>
+                          <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+                            <h2>{{ modalContentTitle }}</h2>
+                            <p ng-bind-html="modalContent">
+                             
+                            </p>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </section><!-- /Portfolio Details Section -->
+            </div>
+            <div class="modal-footer  d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
 
     </section><!-- /Portfolio Section -->
@@ -673,9 +886,48 @@
             placement: "top", // Adjust as needed
         });
     });
+
+
+
+    var app = angular.module('myAppPortfolio', []);
+
+    app.controller('ModalController', function($scope, $sce) {
+        $scope.modalTitle = "";
+        $scope.modalContent = "";
+        $scope.modalContentTitle = "";
+        $scope.modalCategory = "";
+        $scope.modalClient = "";
+        $scope.modalProjectDate = "";
+        $scope.modalProjectURL = "";
+        $scope.modalImg1 = "";
+        $scope.modalImg2 = "";
+        $scope.modalImg3= "";
+        $scope.modalImg4 = "";
+        $scope.modalImg5= "";
+        $scope.modalProjectURLText="";
+
+        // Function to update modal content dynamically
+        $scope.openModal = function(title, content, contentTitle, Category, Date, URL, URLTEXT, img1, img2, img3, img4, img5) {
+            $scope.modalTitle = title;
+            $scope.modalContent =$sce.trustAsHtml(content.replace(/\n/g, '<br/>'));
+            $scope.modalContentTitle=contentTitle;
+            $scope.modalCategory=Category;
+            $scope.modalProjectURL=URL;
+            $scope.modalProjectDate=Date;
+            $scope.modalImg1=img1;
+            $scope.modalImg2=img2;
+            $scope.modalImg3=img3;
+            $scope.modalImg4=img4;
+            $scope.modalImg5=img5;
+            $scope.modalProjectURLText=URLTEXT;
+
+            // Open Bootstrap Modal
+            var myModal = new bootstrap.Modal(document.getElementById('portfolioDetailsModal'));
+            myModal.show();
+        };
+    });
 </script>
 
-<script src="assets/js/angulajs.min.js"></script>
 </body>
 
 </html>
